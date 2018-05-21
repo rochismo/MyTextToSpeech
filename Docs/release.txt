@@ -1,0 +1,48 @@
+Release Notes CepstralJavaWrapper v2.
+==============
+1. System Requirements
+2. Feature Support
+3. Known issues
+
+1. System Requirements
+======================
+	1. Operating System.
+	2. Software bundles.
+
+1.1 Operating System
+	---------------------
+The operating systems supported are Windows Vista, Windows XP and Linux.
+The wrappers were tested on Windows vista and XP platforms. 
+We tested the wrapper on Ubuntu and Fedora Core 9
+
+1.2. Software Bundle
+---------------------
+The following softwares should be preinstalled for the demos to work
+1. Cepstral Voices 5.1
+2. Microsoft SAPI 5.1 or higher (for Windows)
+3. Visual Studio 2005 or higher for windows platform if you want to compile JNI.
+4. GNU Compiler for C++ code (gcc).
+5. GNU make utility (if you intend to use the Makefile for compilation).
+
+NOTE:
+-----
+2. GNU gcc compiler was used for linux. This is not a requirement but other compilers weren't tested
+on. Visual studio 2005 with SAPI 5.1 was used for testing the SAPI interface on windows XP. On windows vista
+Visual Studio 2008 with SAPI 5.3 was used.
+3. SAPI interfaces are packaged in Windows SDK installer.
+
+2. Feature Support
+==================
+1. The JNI interface loads libraries generically in a platform independent way. This however needs 
+the environment variables setup appropriately (see documentation).
+2. Added new method to block for speech engine to finish all queued/currently running jobs.
+3. Placed a cap on pitch values and speak rates since higher rates seem to crash the engine.
+4. JSAPI compliant wrapper has been removed until the wrapper is properly implemented
+
+3. Known Issues
+===============
+1. On linux, cepstral engine grabs an exclusive lock on audio device. This could be a problem if 
+some other audio is playing (for example multimedia content from firefox). An workaround is to 
+turn off all the audio playing before generating speech.
+2. The cepstral wrapper crash when pitch values and speak rates are changed in quick succession. A work 
+around this problem would be to shutdown the engine and restart it after every speech synthesis.
