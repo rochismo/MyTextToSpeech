@@ -2,6 +2,7 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,19 +17,19 @@ public abstract class Manager {
     private JPanel jPanel;
     private List<Button> buttons;
 
-    public Manager(String source) {
+    public Manager(String source) throws IOException {
         path = source;
         extension = ".wav";
         audioNames = new ArrayList<>();
         audioFiles = new ArrayList<>();
         audioClips = new ArrayList<>();
-        files = new File(path).listFiles();
+        files = new File(String.valueOf(path)).listFiles();
         init();
     }
 
     protected void init() {
         for (File file : files) {
-            audioNames.add(file.getName());
+            audioNames.add(file.getName().replaceAll(extension, ""));
             audioFiles.add(file.getAbsolutePath());
         }
     }

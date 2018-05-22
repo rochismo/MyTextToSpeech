@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyTextToSpeech.iml" filepath="$PROJECT_DIR$/MyTextToSpeech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/audio/audio.iml" filepath="$PROJECT_DIR$/audio/audio.iml" />
     </modules>
   </component>
 </project>

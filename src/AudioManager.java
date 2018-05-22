@@ -1,12 +1,13 @@
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 public class AudioManager extends Manager {
     private Clip clip;
 
-    public AudioManager(String source) {
+    public AudioManager(String source) throws IOException {
         super(source);
         start();
     }
